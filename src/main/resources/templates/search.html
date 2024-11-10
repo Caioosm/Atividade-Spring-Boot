@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Filme</title>
+</head>
+<body>
+    <h1>Pesquisa de Filmes</h1>
+    <form action="/movies/search" method="get">
+        <label for="movieName">Nome do Filme:</label>
+        <input type="text" id="movieName" name="movieName" value="${movieName}" required />
+        <button type="submit">Pesquisar</button>
+    </form>
+    
+    <!-- Exibe erro se houver -->
+    <div th:if="${error}" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+</body>
+</html>
