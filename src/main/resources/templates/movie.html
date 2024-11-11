@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark"="">
 <head>
     <meta charset="UTF-8">
     <title>Resultado da Pesquisa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="container">
@@ -12,11 +13,12 @@
         <form th:action="@{/movies/search}" method="get" class="mt-4">
             <input type="text" name="movieName" placeholder="Digite o nome do filme" class="form-control" required>
             <button type="submit" class="btn btn-primary mt-2">Pesquisar</button>
-            <button> teste</button>
+            
         </form>
 
         <div th:if="${movie != null}" class="mt-4">
             <h3 th:text="${movie.title}"></h3>
+            <label for=""> </label>
             <p><strong>Lançamento:</strong> <span th:text="${movie.releaseDate}"></span></p>
             <p><strong>Avaliação:</strong> <span th:text="${movie.voteAverage}"></span></p>
             <p><strong>Sinopse:</strong> <span th:text="${movie.overview}"></span></p>
