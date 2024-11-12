@@ -7,22 +7,22 @@ import org.springframework.ui.Model;
 import com.atividade.model.Movie;
 import com.atividade.services.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping(value = "/movie")
 public class MovieController {
     
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("/")
-    public String showSearchForm(Model model) {
-        // Inicializando o campo de pesquisa vazio
-        model.addAttribute("movieName", "");
-        return "search"; // Página de pesquisa
+    @GetMapping
+    public String showSearchForm() {
+        return "movie"; // Página de pesquisa
     }
 
-    @GetMapping("/movies/search")
+    @GetMapping("/search")
     public String searchMovie(@RequestParam("movieName") String movieName, Model model) {
         Movie movie = movieService.fetchMovieDetails(movieName);
         if (movie != null) {
